@@ -24,9 +24,14 @@ body {
 a{
   color: #006b3a;
 }
-main a{
-  outline: none;
+
+/* Added visible focus indicators for better accessibility */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid #4A90E2; /* Visible focus indicator for better accessibility */
 }
+
 h2 {
   margin-top: 0;
 }
@@ -206,7 +211,7 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
-        <a href="#" tabindex="-1">Business</a>
+        <a href="#">Business</a> <!-- Removed tabindex="-1" to make it accessible -->
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
         <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
@@ -217,8 +222,8 @@ article p {
   <div class="newsletter">
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text">
-      <button type="button" onfocus="getFocus()">Sign up</button></div>
+      <input type="text" aria-label="Newsletter Signup">
+      <button type="button">Sign up</button></div> <!-- Removed onfocus attribute for a simpler behavior --> 
       
     </div>
   </div>
