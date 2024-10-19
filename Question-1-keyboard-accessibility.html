@@ -211,7 +211,7 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
-        <a href="#">Business</a> <!-- Removed tabindex="-1" to make it accessible -->
+        <a href="#">Business</a> <!-- Removed tabindex="-1" -->
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
         <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
@@ -219,14 +219,7 @@ article p {
       </nav>
     </div>
   </header>
-  <div class="newsletter">
-    <div class="container">
-      <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text" aria-label="Newsletter Signup">
-      <button type="button">Sign up</button></div> <!-- Removed onfocus attribute for a simpler behavior --> 
-      
-    </div>
-  </div>
+  
   <main class="container">
     <h2 class="offscreen">Top story</h2>
     <article class="main-story">
@@ -235,7 +228,7 @@ article p {
         <h3 class="headline">Study shows 9 out of 10 cats quietly judging their owners as they sleep</h3>
         <p>
           GRAND RAPIDS, MILorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" tabindex="0">Read More</a>
           
         </p>
       </div>
@@ -259,7 +252,7 @@ article p {
             <h3 class="headline">Telephone booths. How is this still a thing?</h3>
             <p>
               LONDON-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" tabindex="0">Read More</a>
             </p>
           </div>
         </article>
@@ -273,32 +266,46 @@ article p {
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/dog.jpg?raw=true" alt="A dog at a desk looks up at a laptop and mouse" />
           <div class="info">
-            <h3 class="headline">Turn man's best friend into man's best personal assistant. <a href="#">Read More</a></h3>
+            <h3 class="headline">Turn man's best friend into man's best personal assistant. <a href="#" tabindex="0">Read More</a></h3>
           </div>
         </article>
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/coffee.jpg?raw=true" alt="A cup of coffee on a table" />
           <div class="info">
-            <h3 class="headline">San Franciscans are losing their minds over this third wave, artisanal, fair trade, handcrafted, locavore coffee. <a href="#">Read More</a></h3>
+            <h3 class="headline">San Franciscans are losing their minds over this third wave, artisanal, fair trade, handcrafted, locavore coffee. <a href="#" tabindex="0">Read More</a></h3>
         </article>
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/football.jpg?raw=true" alt="A football player hands the ball off to another player" />
           <div class="info">
-            <h3 class="headline">Sportsball team scores a touchpoint to win the big race. <a href="#">Read More</a></h3>
+            <h3 class="headline">Sportsball team scores a touchpoint to win the big race. <a href="#" tabindex="0">Read More</a></h3>
           </div>
         </article>
       </div>
     </div>
     
   </main>
-  <!--   stuff can be added here :)
+  <div class="newsletter">
+    <div class="container">
+      <h3>Like the Funion? Consider joining our newsletter!</h3>
+      <!--Add label to input-->
+      <label for="email_signup">Enter your Email Address:</label>
+      <input type="email" id="email_signup" aria-label="Pleas Enter Your Email Address to Join Our Newsletter">
+      <button type="signup" onfocus="getFocus(this)" onclick="alertRedirect()">Sign up</button>
+            
+    </div>
+  </div>
   <footer>
   </footer>
   -->
   
   <script>
-    function getFocus() {
-      window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html','mywindow').focus()
+    function getFocus(element) {
+      element.style.outline = '2px solid #4A90E2';  // Visual focus indicator for keyboard users
+      
+    }
+    function alertRedirect() {
+      alert('You will be redirected to another webpage after clicking OK.');
+      window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html');  // Redirect on click
     }
     </script>
 </body>
